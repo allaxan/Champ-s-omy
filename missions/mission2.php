@@ -1,12 +1,17 @@
+<?php
+declare(strict_types=1);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission 4 - Laissons les pages souffler un peu </title>
+    <title>Mission 2 | Sobriete</title>
+    <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/mission2.css">
 </head>
 <body>
+    <?php include_once __DIR__ . '/../header.inc.php'; ?>
 
     <div class="pop-up">
         <!-- <div class="pop-up-content">
@@ -30,14 +35,14 @@
                     Ce badge illustre concrètement les principes de NIRD : en optimisant les images, vous appliquez la Responsabilité Numérique en réduisant l’impact environnemental du web, et favorisez une inclusion numérique en rendant le contenu accessible à un plus grand nombre.
                     Continuez à appliquer ces bonnes pratiques pour un web plus durable et responsable !
                 </p>
-                <p class="button-to-collection"><a href="#" class="close-win-btn">Voir ma collection</a></p>
+                <p class="button-to-collection"><a href="../collection.php" class="close-win-btn">Voir ma collection</a></p>
             </div>
         </div>
     </div>
 
 
 
-    <main>
+    <main class="page-shell" style="padding-top: 6rem;">
         <section class="left">
             <section class="img-no-optmized-wrapper">
                 <h1>Images non optimisées</h1>
@@ -80,6 +85,9 @@
             </section>
         </section>
     </main>
+        <footer class="site-footer">
+            <a href="../mentions_legales.html">Mentions legales</a>
+        </footer>
     <script src="../js/mission2.js"></script>
 </body>
 </html>

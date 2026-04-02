@@ -1,31 +1,20 @@
+<?php
+declare(strict_types=1);
+?>
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <title>Jeu de sensibilisation à la dyslexie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 1 | Accessibilite</title>
+    <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/mission1.css">
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- Import de la police OpenDyslexic pour améliorer l'accessibilité -->
-    <link href="https://fonts.googleapis.com/css2?family=OpenDyslexic:wght@400;700&display=swap" rel="stylesheet">
-
     <script src="../js/mission1.js" defer></script>
 </head>
-
 <body>
-
-    <header>
-        <nav>
-            <a href="#" class="active">Accueil</a>
-            <a href="collection.html">Collection</a>
-            <div class="logo">
-                <a href="#">LOGO</a>
-            </div>
-            <a href="#">Nird</a>
-            <a href="#">SE DÉCONNECTER</a>
-        </nav>
-    </header>
-    <div class="container">
+    <?php include_once __DIR__ . '/../header.inc.php'; ?>
+    <main class="page-shell">
+        <div class="container panel">
         <h1>Une petite sensibilisation à la dyslexie ?</h1>
 
         <p id="instructions">
@@ -62,7 +51,10 @@
                     police d'écriture</li>
             </ul>
         </div>
-    </div>
+                </div>
+        </main>
+        <footer class="site-footer">
+            <a href="../mentions_legales.html">Mentions legales</a>
+        </footer>
 </body>
-
 </html>

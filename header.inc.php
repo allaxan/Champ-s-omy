@@ -1,10 +1,14 @@
 <?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 $scriptPath = str_replace('\\', '/', $_SERVER['SCRIPT_NAME'] ?? '');
-$isMissionPage = substr($scriptPath, -strlen('/missions/mission1.php')) === '/missions/mission1.php'
-    || substr($scriptPath, -strlen('/missions/mission2.php')) === '/missions/mission2.php'
-    || substr($scriptPath, -strlen('/missions/mission3.php')) === '/missions/mission3.php';
-$basePath = $isMissionPage ? '../' : '';
 $currentPage = basename($scriptPath);
+$isMissionPage = strpos($scriptPath, '/missions/') !== false;
+$basePath = $isMissionPage ? '../' : '';
+$isLoggedIn = isset($_SESSION['id_utilisateur']) && ctype_digit((string) $_SESSION['id_utilisateur']);
 
 function nav_class(string $currentPage, string $targetPage): string
 {
@@ -24,6 +28,12 @@ function nav_class(string $currentPage, string $targetPage): string
             <a href="<?= $basePath ?>missions/mission1.php"<?= nav_class($currentPage, 'mission1.php') ?>>Mission 1</a>
             <a href="<?= $basePath ?>missions/mission2.php"<?= nav_class($currentPage, 'mission2.php') ?>>Mission 2</a>
             <a href="<?= $basePath ?>missions/mission3.php"<?= nav_class($currentPage, 'mission3.php') ?>>Mission 3</a>
+            <?php if ($isLoggedIn): ?>
+                <a href="<?= $basePath ?>deconnexion.php">Deconnexion</a>
+            <?php else: ?>
+                <a href="<?= $basePath ?>connexion.php"<?= nav_class($currentPage, 'connexion.php') ?>>Connexion</a>
+                <a href="<?= $basePath ?>inscription.php"<?= nav_class($currentPage, 'inscription.php') ?>>Inscription</a>
+            <?php endif; ?>
         </nav>
     </div>
 </header>
